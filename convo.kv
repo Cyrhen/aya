@@ -1,0 +1,135 @@
+
+<Command>
+    size_hint_y: None
+    pos_hint: {"right": .98}
+    height: self.texture_size[1]
+    padding: 12, 10
+    theme_text_color:"Custom"
+    text_color:0,0,0,1
+
+    canvas.before:
+        Color:
+            rgb:(100/255, 212/255, 199/255, 255/255)
+        RoundedRectangle:
+            size: self.width, self.height
+            pos: self.pos
+            radius: [20, 20, 0, 20]
+
+<TimeData>
+    size_hint_y: None
+    pos_hint: {"right": .98}
+    height: self.texture_size[1]
+    padding: 20, 5
+    theme_text_color:"Custom"
+    text_color: 176/255, 124/255, 218/255, 255/255
+
+    canvas.before:
+        Rectangle:
+            size: self.width, self.height
+            pos: self.pos
+
+<Response>
+    size_hint_y: None
+    pos_hint: {"x": .02}
+    height: self.texture_size[1]
+    padding: 12, 10
+
+    canvas.before:
+        Color:
+            rgb:(255/255, 181/255, 197/255, 255/255)
+        RoundedRectangle:
+            size: self.width, self.height
+            pos: self.pos
+            radius: [20, 20, 20, 0]
+
+<ResponseImage>
+    size_hint_y: None
+    height: 200
+    allow_stretch: True
+    pos_hint: {"x": .02}
+
+    canvas.before:
+        Color:
+            rgb:(255/255, 181/255, 197/255, 255/255)
+        RoundedRectangle:
+            size: self.width, self.height
+            pos: self.pos
+            radius: [23, 23, 23, 0]
+
+MDScreen:
+    chat_list: chat_list
+    name: "convo"
+
+    MDFloatLayout:
+        md_bg_color: 255/255, 255/255, 255/255, 255/255
+
+        MDFloatLayout:
+            size_hint_y: .11
+            pos_hint: {"center_y": .95}
+
+            MDToolbar:
+                id: toolbar
+                title: ""
+                pos_hint: {"center_y": .5}
+                md_bg_color: 255/255, 255/255, 255/255, 255/255
+                elevation: 15
+
+            MDLabel:
+                text: "Conversation"
+                font_name: "Rubik-Regular.ttf"
+                font_size: "20sp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 53/255, 56/255, 60/255,1
+
+            MDIconButton:
+                icon:"arrow-left"
+                pos_hint: {"center_x": .1, "center_y": .5}
+                user_font_size: "20sp"
+                on_release:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "home"
+
+            MDIconButton:
+                icon:"book"
+                pos_hint: {"center_x": .9, "center_y": .5}
+                user_font_size: "20sp"
+                on_release:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "userg"
+
+        ScrollView:
+            size_hint_y: .77
+            pos_hint: {"x": 0, "y": .116}
+            do_scroll_x: True
+            do_scroll_y: True
+            BoxLayout:
+                id: chat_list
+                orientation: "vertical"
+                md_bg_color: 170/255, 51/255, 106/255, 1
+                size: (root.width, root.height)
+                height: self.minimum_height
+                size_hint:None, None
+                pos_hint:{"top": 10}
+                cols: 1
+
+        MDFloatLayout:
+            size_hint: 1, .1
+            pos_hint: {"center_x": .5, "center_y": .05}
+            canvas:
+                Color:
+                    rgb:(176/255, 124/255, 218/255, 255/255)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            MDIconButton:
+                icon:"microphone"
+                pos_hint: {"center_x": .5, "center_y": .95}
+                user_font_size: "40sp"
+                theme_text_color: "Custom"
+                text_color: 0,0,0,1
+                md_bg_color: 255/255, 187/255, 219/255, 1
+                on_release: app.send()
+

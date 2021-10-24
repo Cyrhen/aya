@@ -1,0 +1,127 @@
+
+MDScreen:
+    ug: ug
+    name: "userg"
+
+    MDFloatLayout:
+        md_bg_color: 255/255, 255/255, 255/255, 255/255
+
+        MDFloatLayout:
+            size_hint_y: .11
+            pos_hint: {"center_y": .95}
+
+            MDToolbar:
+                id: toolbar
+                title: ""
+                pos_hint: {"center_y": .5}
+                md_bg_color: 255/255, 255/255, 255/255, 255/255
+                elevation: 15
+
+            MDLabel:
+                text: "User Guide"
+                font_name: "Rubik-Regular.ttf"
+                font_size: "20sp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 53/255, 56/255, 60/255,1
+
+            MDIconButton:
+                icon:"arrow-left"
+                pos_hint: {"center_x": .1, "center_y": .5}
+                user_font_size: "20sp"
+                on_release:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "home"
+
+            MDIconButton:
+                icon:"book"
+                pos_hint: {"center_x": .9, "center_y": .5}
+                user_font_size: "20sp"
+                on_release: app.show_theme_picker()
+
+
+    MDFloatLayout:
+        size_hint_y: .88
+        pos_hint_y: .150
+        ScrollView:
+            pos_hint: {"x": .02}
+            do_scroll_x: True
+            do_scroll_y: True
+            BoxLayout:
+                id: ug
+                orientation: "vertical"
+                md_bg_color: 170/255, 51/255, 106/255, 1
+                size: (root.width, root.height)
+                height: self.minimum_height
+                size_hint:None, 2
+                MDFloatLayout:
+                    size_hint: .96, .02
+                    canvas:
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [10, 10, 10, 10]
+
+                    MDLabel:
+                        text: "Front Description"
+                        font_name: "Rubik-Regular.ttf"
+                        size_hint: .96, None
+                        pos_hint: {"center_x": .5, "center_y": .8}
+                        font_size: "18sp"
+
+                    MDLabel:
+                        text: "Cheer up, sweet creature! Spill your worries, and let me be your solace in the midst of your PMS and menstruation pain."
+                        font_name: "Rubik-Regular.ttf"
+                        size_hint: .96, None
+                        pos_hint: {"center_x": .5, "center_y": .4}
+                        font_size: "12sp"
+                        halign: "justify"
+
+                MDFloatLayout:
+                    size_hint: .96, .08
+                    canvas:
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [10, 10, 10, 10]
+
+                    MDLabel:
+                        text: "About this App"
+                        font_name: "Rubik-Regular.ttf"
+                        size_hint: .96, None
+                        pos_hint: {"center_x": .5, "center_y": .95}
+                        font_size: "18sp"
+
+                    MDLabel:
+                        text: "Brings comfort in times of discomfort.\n\nAYA is a companion designed to accompany any girl going through menstruation or PMS. It allows the user to interact with the Voicebot by using speech-to-text and text-to-speech methods and start a conversation you wish to have during your monthlies.\n\nConverse with AYA, ask questions you want to know about menstruation or PMS, get along with her by asking for jokes, allow her to play music you wish to hear, assist you through searching the information you want to know about your period on google, and ask her to record your notes on your default Note Application on your mobile phone about your menstruation details.\n\nFeel free to express how you feel and let AYA be your companion who comforts you during your menstruation difficulties."
+                        font_name: "Rubik-Regular.ttf"
+                        size_hint: .96, None
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        font_size: "12sp"
+                        halign: "justify"
+
+
+                MDFloatLayout:
+                    size_hint: .96, .08
+                    canvas:
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [10, 10, 10, 10]
+
+                    MDLabel:
+                        text: "Function"
+                        font_name: "Rubik-Regular.ttf"
+                        size_hint: .96, None
+                        pos_hint: {"center_x": .5, "center_y": .97}
+                        font_size: "18sp"
+
+                    MDLabel:
+                        text: "To use the application, simply click the ‘GET STARTED’ button below, and the conversation page will appear. Underneath the page is a button labeled ‘MIC ICON’, which the user can activate in order to talk to and start a conversation with Voicebot AYA. The user is free to ask questions about their menstruation and PMS concerns, get along with AYA by simply asking for jokes, music, and assistance in searching for questions that are beyond the system's capability by directing the user to Google about their asked questions by simply saying the keyword ‘Search’ following the word that the user is asking. Every conversation that the user makes to AYA will also appear as a chat bubble for better user comprehension and disappear the moment the user exits from the conversation page. The user can also ask AYA to record their period details and save it to their dedicated default Notes Application in their mobile phone."
+                        font_name: "Rubik-Regular.ttf"
+                        size_hint: .96, None
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        font_size: "12sp"
+                        halign: "justify"
+

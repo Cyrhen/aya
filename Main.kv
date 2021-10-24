@@ -1,0 +1,72 @@
+
+MDScreen:
+    name: "home"
+
+    MDFloatLayout:
+        md_bg_color: 255/255, 255/255, 255/255, 255/255
+
+        MDIconButton:
+            icon:"book"
+            pos_hint: {"center_x": .9, "center_y": .95}
+            user_font_size: "25sp"
+            text_color: 1,1,1,1
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.current = "userg"
+        Image:
+            source: "aya-logo.png"
+            size_hint: .8, .8
+            pos_hint: {"center_x": .5, "center_y": .72}
+
+        MDLabel:
+            text: "AYA"
+            font_name: "Rubik-Regular.ttf"
+            font_size: "35sp"
+            pos_hint: {"center_x": .5, "center_y": .47}
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color:[ 255/255, 138/255, 170/255, 1 ]
+
+        MDLabel:
+            text: "Ask Your Assistant"
+            font_name: "Rubik-Regular.ttf"
+            font_size: "15sp"
+            pos_hint: {"center_x": .5, "center_y": .42}
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color:[ 177/255, 0, 255/255, 1 ]
+
+        MDLabel:
+            text: "Your Menstruational Companion whatever the description is, ella ella e e, yeah life goes on time check 9:54am HAHAHAHAHA"
+            size_hint_x: .9
+            font_name: "Rubik-Light.ttf"
+            font_size: "12sp"
+            pos_hint: {"center_x": .5, "center_y": .35}
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color:[ 177/255, 50/255, 255/255, 1 ]
+
+
+        MDFloatLayout:
+            size_hint: .8, .09
+            pos_hint: {"center_x": .5, "center_y": .13}
+            canvas:
+                Color:
+                    rgb:(100/255, 200/255, 159/255, 255/255)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [10, 10, 10, 10]
+
+            Button:
+                text: "GET STARTED"
+                size_hint: 1, 1
+                font_name: "Rubik-Light.ttf"
+                font_size: "20sp"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                background_color: 0,0,0,0
+                on_release:
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "convo"
+
+
